@@ -1,0 +1,32 @@
+---
+- name: Simple Ansible Playbook
+  hosts: DockerContainers
+  become: true  #Ensures sudo privileges
+  tasks:
+    - name: Remove Nginx
+      apt:
+        name: 
+          - nginx
+          - nginx-common
+          - nginx-core
+        state: absent
+        update_cache: yes
+
+    #- name: Start Nginx
+    #   service:
+    #     name: nginx
+    #     state: started
+
+    # - name: Ensure Nginx is running
+    #   command: nginx -t
+    #   register: nginx_test
+
+    # - name: Restart Nginx
+    #   service:
+    #     name: nginx
+    #     state: restarted
+
+    # - name: uninstall nginx
+    #   apt:
+    #     name: nginx
+    #     state: absent
